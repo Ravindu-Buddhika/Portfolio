@@ -9,6 +9,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Audiowide&family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+      #sidebar {
+        width: 250px;
+        height: 100%;
+        background: #343a40;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        transition: all 0.3s;
+        padding-top: 60px;
+        z-index: 999;
+      }
+      #sidebar.active {
+        left: 0;
+      }
+      #sidebar .nav-link {
+        color: white;
+        padding: 10px 20px;
+      }
+    </style>
 </head>
 <body style="background-color: rgb(101, 101, 235);">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js">
@@ -17,10 +37,10 @@
     AOS.init();
   </script>
 
-  <nav class="navbar navbar-expand-lg bg-dark p-3">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="#";><img src="img/photo_2025-02-24_15-28-18.jpg" width="50px" class="rounded-5" alt=""></a>
-        <a class="navbar-brand" href="#" style="color: rgb(101, 101, 235);text-shadow:  -1px -1px 0 white;">Ravindu</a>
+        <a class="navbar-brand" href="#" style="color: rgb(161, 161, 236);text-shadow:  -1px -1px 0 white;">Ravindu</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,18 +56,18 @@
     </div>
   </nav>
 
-  <div data-aos="fade-up"data-aos-duration="3000">
-    <center><img src="img/Blue Modern Company Slogan LinkedIn Banner.png" alt="" width="1530px"></center>
+  <div class="col-sm-12" data-aos="flip-down"data-aos-duration="3000">
+    <center><img src="img/Blue Modern Company Slogan LinkedIn Banner.png" alt="" width="1530px" class="d-block mx-auto img-fluid"></center>
   </div>
 
-  <div class="col-lg-12 col-md-6 col-sm-8 img-center mt-5" data-aos="fade-up"data-aos-duration="3000">
+  <div class="col-lg-12 col-md-12 col-sm-12 img-center mt-5" data-aos="fade-up"data-aos-duration="3000">
     <img src="img/photo_2025-02-24_15-28-18.jpg" alt="" width="400px" class="rounded-5 d-block mx-auto img-fluid">
   </div>
   <div class="m-5 p-5 bg-dark text-white rounded-5" data-aos="fade-up"data-aos-duration="3000">
     <h1>Hi, I’m Ravindu Buddhika </h1>
     <p>“I’m Ravindu Buddhika, a motivated individual from Rajagiriya, currently living in Giriulla. Born in 2002 and educated at Mahanama College, I take pride in being a Sri Lankan with a strong drive for growth. I enjoy analyzing problems and finding solutions, and I thrive in group work settings. I consider myself a good communicator and prefer hands-on experiences over theoretical memorization. That practical approach has helped me develop strong skills that often exceed my academic qualifications.” </p>
   </div>
-  <footer class="bg-light py-3 mt-5 bg-dark">
+  <footer class="bg-light py-3 mt-5 bg-dark col-lg-12 col-md-12 col-sm-12">
       <div class="container mt-5 ">
           <div class="row">
               <div class="col-md-4 ">
@@ -65,5 +85,6 @@
              </div>
       </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>
