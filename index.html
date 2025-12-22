@@ -131,8 +131,8 @@
 
         .glass-box:hover {
             border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.08); 
-            transform: translateY(-5px); 
+            box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
         }
 
         .btn-glass {
@@ -156,6 +156,40 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             color: white;
             transform: translateY(-2px);
+        }
+
+        .btn-linkedin-glass {
+            /* Brighter background for a lighter look */
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            /* Brighter, crisp white border */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+
+            color: white;
+            padding: 10px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+
+            /* Subtle white glow smoothing */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-linkedin-glass:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        /* Optional: Make just the icon the LinkedIn blue */
+        .btn-linkedin-glass i {
+            color: #0077b5;
         }
     </style>
 </head>
@@ -206,8 +240,7 @@
                 </h1>
                 <div class="d-grid gap-2 d-md-block col-md-4 col-sm-4 col-5">
                     <button class="btn-glass" type="button">See more...</button>
-                    <a href="https://www.linkedin.com/in/ravindu-buddika-48a761369" target="_blank"
-                        class="btn-glass">
+                    <a href="https://www.linkedin.com/in/ravindu-buddika-48a761369" target="_blank" class="btn-linkedin-glass">
                         <i class="bi bi-linkedin icon-spacing"></i> Linkedin
                     </a>
                 </div>
