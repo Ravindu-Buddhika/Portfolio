@@ -265,7 +265,15 @@
             /* Optional: subtle white glow */
         }
 
-        
+        .glass-subtext {
+            height: 1.5em;
+            /* Exactly one line of text */
+            line-height: 1.5em;
+            display: block;
+            overflow: hidden;
+            /* Prevents the cursor from stretching the box */
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
@@ -343,7 +351,7 @@
         </div>
     </div>
 
-    <div class="d-flex flex-wrap gap-4 justify-content-center p-4" data-aos="fade-up" data-aos-duration="3000">
+    <div class="d-flex flex-wrap gap-4 justify-content-center p-4" data-aos="fade-up" data-aos-duration="1000">
         <div class="tech-card" data-aos="fade-up-right">
             <i class="fab fa-java java-color"></i>
             <span>Java</span>
@@ -402,19 +410,36 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
     <script>
-        var typed = new Typed('#typed-text', {
-            strings: [
-                'Software Developer',
-                'Java Backend Engineer',
-                'Full Stack Developer'
-            ],
-            typeSpeed: 60,
-            backSpeed: 40,
-            backDelay: 2000,
-            loop: true,
-            cursorChar: '|'
-        });
-    </script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var typed;
+    var target = document.querySelector('#typed-text');
+
+    // Create the Observer
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // If the text box is visible, start/resume typing
+          if (!typed) {
+            typed = new Typed('#typed-text', {
+              strings: ['Full Stack Developer', 'Backend Expert', 'Software Engineer'],
+              typeSpeed: 50,
+              backSpeed: 30,
+              loop: true,
+              smartBackspace: true
+            });
+          } else {
+            typed.start();
+          }
+        } else {
+          // If the user scrolls away, stop typing to stop the "fight"
+          if (typed) typed.stop();
+        }
+      });
+    }, { threshold: 0.5 }); // Starts when 50% of the box is visible
+
+    observer.observe(target);
+  });
+</script>
 </body>
 
 </html>
