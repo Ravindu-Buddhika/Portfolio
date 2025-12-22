@@ -351,6 +351,16 @@
         </div>
     </div>
 
+    <div class="container text-center my-5 p-5" data-aos="fade-up">
+        <h2 style="font-family: 'Audiowide', cursive; color: white;">My Tech Stack</h2>
+        <div
+            style="width: 100px; height: 4px; background: rgba(255,255,255,0.2); margin: 10px auto; border-radius: 2px;">
+        </div>
+    </div>
+
+    <div class="d-flex flex-wrap gap-4 justify-content-center p-4">
+    </div>
+
     <div class="d-flex flex-wrap gap-4 justify-content-center p-4" data-aos="fade-up" data-aos-duration="1000">
         <div class="tech-card" data-aos="fade-up-right">
             <i class="fab fa-java java-color"></i>
@@ -410,36 +420,36 @@
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
     <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var typed;
-    var target = document.querySelector('#typed-text');
+        document.addEventListener('DOMContentLoaded', function () {
+            var typed;
+            var target = document.querySelector('#typed-text');
 
-    // Create the Observer
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // If the text box is visible, start/resume typing
-          if (!typed) {
-            typed = new Typed('#typed-text', {
-              strings: ['Full Stack Developer', 'Backend Expert', 'Software Engineer'],
-              typeSpeed: 50,
-              backSpeed: 30,
-              loop: true,
-              smartBackspace: true
-            });
-          } else {
-            typed.start();
-          }
-        } else {
-          // If the user scrolls away, stop typing to stop the "fight"
-          if (typed) typed.stop();
-        }
-      });
-    }, { threshold: 0.5 }); // Starts when 50% of the box is visible
+            // Create the Observer
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // If the text box is visible, start/resume typing
+                        if (!typed) {
+                            typed = new Typed('#typed-text', {
+                                strings: ['Full Stack Developer', 'Backend Expert', 'Software Engineer'],
+                                typeSpeed: 50,
+                                backSpeed: 30,
+                                loop: true,
+                                smartBackspace: true
+                            });
+                        } else {
+                            typed.start();
+                        }
+                    } else {
+                        // If the user scrolls away, stop typing to stop the "fight"
+                        if (typed) typed.stop();
+                    }
+                });
+            }, { threshold: 0.5 }); // Starts when 50% of the box is visible
 
-    observer.observe(target);
-  });
-</script>
+            observer.observe(target);
+        });
+    </script>
 </body>
 
 </html>
