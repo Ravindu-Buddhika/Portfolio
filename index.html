@@ -264,6 +264,8 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             /* Optional: subtle white glow */
         }
+
+        
     </style>
 </head>
 
@@ -326,11 +328,19 @@
     </div>
 
     <div class="m-3 p-3 glass-box text-white rounded-5" data-aos="fade-up" data-aos-duration="3000">
-        <h4>Hi, I’m Ravindu Buddhika </h4>
-        <p>“I’m Ravindu Buddhika, a passionate software developer with a strong interest in building scalable web
-            applications and solving real-world problems through clean code and smart design. From frontend interfaces
-            to backend systems, I enjoy working across the full stack and continuously learning new technologies.
-            Welcome to my portfolio!” </p>
+        <div class="intro-text">
+            <h4 style="color: white; font-family: 'Audiowide', cursive;">
+                Hi, I'm Ravindu Buddhika
+            </h4>
+            <p class="glass-subtext">
+                A passionate <span id="typed-text" style="color: #61dafb; font-weight: bold;"></span>
+            </p>
+            <p class="description">
+                “I’m building scalable web applications and solving real-world problems through clean code and smart
+                design.
+                From frontend interfaces to backend systems, I enjoy working across the full stack.”
+            </p>
+        </div>
     </div>
 
     <div class="d-flex flex-wrap gap-4 justify-content-center p-4" data-aos="fade-up" data-aos-duration="3000">
@@ -389,6 +399,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous">
         </script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        var typed = new Typed('#typed-text', {
+            strings: [
+                'Software Developer',
+                'Java Backend Engineer',
+                'Full Stack Developer'
+            ],
+            typeSpeed: 60,
+            backSpeed: 40,
+            backDelay: 2000,
+            loop: true,
+            cursorChar: '|'
+        });
+    </script>
 </body>
 
 </html>
