@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Audiowide&family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         #sidebar {
             width: 250px;
@@ -191,6 +192,78 @@
         .btn-linkedin-glass i {
             color: #0077b5;
         }
+
+        /* Base Icon Styling */
+        .tech-card i {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+        }
+
+        /* Brand Colors */
+        .java-color {
+            color: #f89820;
+        }
+
+        /* Java Orange */
+        .spring-color {
+            color: #6db33f;
+        }
+
+        /* Spring Green */
+        .mysql-color {
+            color: #00758f;
+        }
+
+        /* MySQL Blue */
+        .js-color {
+            color: #f7df1e;
+        }
+
+        /* JavaScript Yellow */
+        .react-color {
+            color: #61dafb;
+        }
+
+        /* React Sky Blue */
+
+        /* Special Slow Spin for React */
+        .fa-spin-slow {
+            animation: fa-spin 10s infinite linear;
+        }
+
+        /* Refined Glass Card for Skills */
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            width: 130px;
+            height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .tech-card span {
+            color: #ffffff;
+            /* Pure white color */
+            font-weight: 500;
+            /* Makes the text slightly thicker */
+            margin-top: 8px;
+            /* Adds space between the icon and the text */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            /* Optional: subtle white glow */
+        }
     </style>
 </head>
 
@@ -240,7 +313,8 @@
                 </h1>
                 <div class="d-grid gap-2 d-md-block col-md-4 col-sm-4 col-5">
                     <button class="btn-glass" type="button">See more...</button>
-                    <a href="https://www.linkedin.com/in/ravindu-buddika-48a761369" target="_blank" class="btn-linkedin-glass">
+                    <a href="https://www.linkedin.com/in/ravindu-buddika-48a761369" target="_blank"
+                        class="btn-linkedin-glass">
                         <i class="bi bi-linkedin icon-spacing"></i> Linkedin
                     </a>
                 </div>
@@ -258,6 +332,34 @@
             to backend systems, I enjoy working across the full stack and continuously learning new technologies.
             Welcome to my portfolio!” </p>
     </div>
+
+    <div class="d-flex flex-wrap gap-4 justify-content-center p-4" data-aos="fade-up" data-aos-duration="3000">
+        <div class="tech-card" data-aos="fade-up-right">
+            <i class="fab fa-java java-color"></i>
+            <span>Java</span>
+        </div>
+
+        <div class="tech-card" data-aos="fade-up-left">
+            <i class="fas fa-leaf spring-color"></i>
+            <span>Spring Boot</span>
+        </div>
+
+        <div class="tech-card" data-aos="fade-up-right">
+            <i class="fas fa-database mysql-color"></i>
+            <span>MySQL</span>
+        </div>
+
+        <div class="tech-card" data-aos="fade-up-left">
+            <i class="fab fa-js js-color"></i>
+            <span>JavaScript</span>
+        </div>
+
+        <div class="tech-card" data-aos="fade-up">
+            <i class="fab fa-react react-color fa-spin-slow"></i>
+            <span>React</span>
+        </div>
+    </div>
+
     <footer class="bg-light py-3 mt-5 bg-dark col-lg-12 col-md-12 col-sm-12">
         <div class="container mt-5 ">
             <div class="row">
