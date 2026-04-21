@@ -479,7 +479,8 @@
         </div>
 
         <div class="container text-center my-5 p-5" data-aos="fade-up">
-            <h2 style="font-family: 'Audiowide', cursive; color: white;">Projects</h2>
+            <h2
+                style="font-family: 'Audiowide', cursive; color: white;">Projects</h2>
             <div
                 style="width: 100px; height: 4px; background: rgba(255,255,255,0.2); margin: 10px auto; border-radius: 2px;">
             </div>
@@ -523,7 +524,9 @@
                                 style="font-size: 0.9rem;">Enterprise-grade car
                                 rental system with Mock GPS tracking.</p>
                             <div class="d-grid mt-4">
-                                <a href="https://github.com/Ravindu-Buddhika/DriveME" class="btn btn-light"
+                                <a
+                                    href="https://github.com/Ravindu-Buddhika/DriveME"
+                                    class="btn btn-light"
                                     style="font-weight: bold; border-radius: 10px;">View
                                     Project</a>
                             </div>
@@ -630,9 +633,11 @@
             <div class="container text-center">
                 <h2 class="audiowide mb-4">RAVINDU</h2>
                 <div class="d-flex justify-content-center gap-4 mb-4 fs-4">
-                    <a href="https://github.com/Ravindu-Buddhika" class="text-white"><i
+                    <a href="https://github.com/Ravindu-Buddhika"
+                        class="text-white"><i
                             class="bi bi-github"></i></a>
-                    <a href="https://linkedin.com/in/ravindu-buddika-48a761369" class="text-white"><i
+                    <a href="https://linkedin.com/in/ravindu-buddika-48a761369"
+                        class="text-white"><i
                             class="bi bi-linkedin"></i></a>
                     <a href="mailto:05ravindu@gmail.com" class="text-white"><i
                             class="bi bi-envelope"></i></a>
@@ -642,119 +647,112 @@
             </div>
         </footer>
 
-        <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js">
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-        AOS.init();
-    </script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-            crossorigin="anonymous">
-        </script>
-        <script
-            src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
         <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var typed;
-            var target = document.querySelector('#typed-text');
+            // AOS Initialize කිරීම
+            AOS.init();
 
-            // Create the Observer
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // If the text box is visible, start/resume typing
-                        if (!typed) {
-                            typed = new Typed('#typed-text', {
-                                strings: ['Full Stack Developer', 'Backend Expert', 'Software Engineer'],
-                                typeSpeed: 50,
-                                backSpeed: 30,
-                                loop: true,
-                                smartBackspace: true
-                            });
-                        } else {
-                            typed.start();
+            document.addEventListener('DOMContentLoaded', function () {
+                // --- 1. Typed Text Animation (Intersection Observer සමඟ) ---
+                var typed;
+                var target = document.querySelector('#typed-text');
+
+                if (target) {
+                    var observer = new IntersectionObserver(function (entries) {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                if (!typed) {
+                                    typed = new Typed('#typed-text', {
+                                        strings: ['Full Stack Developer', 'Backend Expert', 'Software Engineer'],
+                                        typeSpeed: 50,
+                                        backSpeed: 30,
+                                        loop: true,
+                                        smartBackspace: true
+                                    });
+                                } else {
+                                    typed.start();
+                                }
+                            } else {
+                                if (typed) typed.stop();
+                            }
+                        });
+                    }, { threshold: 0.5 });
+
+                    observer.observe(target);
+                }
+
+                fetchGitHubStats();
+            });
+
+            async function fetchGitHubStats() {
+                const username = 'Ravindu-Buddhika';
+                const legendContainer = document.getElementById('lang-legend');
+                const chart = document.getElementById('donut-chart');
+
+                if (!legendContainer || !chart) return;
+
+                const langColors = {
+                    "Java": "#b07219",
+                    "HTML": "#e34c26",
+                    "JavaScript": "#f1e05a",
+                    "CSS": "#563d7c",
+                    "Python": "#3572A5"
+                };
+
+                try {
+                    const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=10&sort=updated`);
+                    if (!response.ok) throw new Error('Rate limit exceeded');
+                    
+                    const repos = await response.json();
+                    let langData = {};
+                    let totalSize = 0;
+
+                    const langPromises = repos.map(repo => fetch(repo.languages_url).then(res => res.json()));
+                    const allLanguages = await Promise.all(langPromises);
+
+                    allLanguages.forEach(languages => {
+                        for (const [lang, size] of Object.entries(languages)) {
+                            langData[lang] = (langData[lang] || 0) + size;
+                            totalSize += size;
                         }
-                    } else {
-                        // If the user scrolls away, stop typing to stop the "fight"
-                        if (typed) typed.stop();
-                    }
-                });
-            }, { threshold: 0.5 }); // Starts when 50% of the box is visible
+                    });
 
-            observer.observe(target);
-        });
-    </script>
-        <script>
-async function fetchGitHubStats() {
-    const username = 'Ravindu-Buddhika';
-    const legendContainer = document.getElementById('lang-legend');
-    const chart = document.getElementById('donut-chart');
+                    const sortedLangs = Object.entries(langData)
+                        .sort(([, a], [, b]) => b - a)
+                        .slice(0, 5);
 
-    const langColors = {
-        "Java": "#b07219",
-        "HTML": "#e34c26",
-        "JavaScript": "#f1e05a",
-        "CSS": "#563d7c",
-        "Python": "#3572A5"
-    };
+                    let conicGradient = [];
+                    let currentPercent = 0;
+                    legendContainer.innerHTML = ''; 
 
-    try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=10&sort=updated`);
-        if (!response.ok) throw new Error('Rate limit exceeded');
-        
-        const repos = await response.json();
-        let langData = {};
-        let totalSize = 0;
+                    sortedLangs.forEach(([lang, size]) => {
+                        const percentage = ((size / totalSize) * 100).toFixed(2);
+                        const color = langColors[lang] || `hsl(${Math.random() * 360}, 70%, 50%)`;
 
-        const langPromises = repos.map(repo => fetch(repo.languages_url).then(res => res.json()));
-        const allLanguages = await Promise.all(langPromises);
+                        legendContainer.innerHTML += `
+                            <div class="mb-4 d-flex align-items-center justify-content-between" style="max-width: 300px;">
+                                <div class="d-flex align-items-center">
+                                    <span style="width: 12px; height: 12px; background-color: ${color}; border-radius: 50%; margin-right: 15px;"></span>
+                                    <span style="color: white;">${lang}</span>
+                                </div>
+                                <span style="color: #36BCF7; font-weight: bold; margin-left: 20px;">${percentage}%</span>
+                            </div>`;
 
-        allLanguages.forEach(languages => {
-            for (const [lang, size] of Object.entries(languages)) {
-                langData[lang] = (langData[lang] || 0) + size;
-                totalSize += size;
+                        conicGradient.push(`${color} ${currentPercent}% ${(currentPercent + parseFloat(percentage))}%`);
+                        currentPercent += parseFloat(percentage);
+                    });
+
+                    chart.style.background = `conic-gradient(${conicGradient.join(', ')})`;
+
+                } catch (error) {
+                    console.error("Error:", error);
+                    legendContainer.innerHTML = '<p style="color: #ff4d4d;">GitHub API limit reached. Try later.</p>';
+                }
             }
-        });
-
-        const sortedLangs = Object.entries(langData)
-            .sort(([, a], [, b]) => b - a)
-            .slice(0, 5);
-
-        let conicGradient = [];
-        let currentPercent = 0;
-        legendContainer.innerHTML = ''; 
-
-        sortedLangs.forEach(([lang, size]) => {
-            const percentage = ((size / totalSize) * 100).toFixed(2);
-            const color = langColors[lang] || `hsl(${Math.random() * 360}, 70%, 50%)`;
-
-            legendContainer.innerHTML += `
-                <div class="mb-4 d-flex align-items-center justify-content-between" style="max-width: 300px;">
-                    <div class="d-flex align-items-center">
-                        <span style="width: 12px; height: 12px; background-color: ${color}; border-radius: 50%; margin-right: 15px;"></span>
-                        <span style="color: white;">${lang}</span>
-                    </div>
-                    <span style="color: #36BCF7; font-weight: bold; margin-left: 20px;">${percentage}%</span>
-                </div>`;
-
-            conicGradient.push(`${color} ${currentPercent}% ${(currentPercent + parseFloat(percentage))}%`);
-            currentPercent += parseFloat(percentage);
-        });
-
-        chart.style.background = `conic-gradient(${conicGradient.join(', ')})`;
-
-    } catch (error) {
-        console.error("Error:", error);
-        legendContainer.innerHTML = '<p style="color: #ff4d4d;">GitHub API rate limit exceeded. Please try again later.</p>';
-    }
-}
-
-fetchGitHubStats();
-</script>
+        </script>
     </body>
 
 </html>
